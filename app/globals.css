@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --bg-elevated: #f4f6f8;
+  --bg-card: #ffffff;
+  --text: #0f1728;
+  --text-muted: #5c6774;
+  --blue: #0b4f8a;
+  --blue-dim: #083d6b;
+  --blue-glow: rgba(11, 79, 138, 0.16);
+  --pine: #1b6b52;
+  --pine-dim: #155541;
+  --gold: #4a5563;
+  --line: #e6e9ee;
+  --line-strong: #d5dae2;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-elevated: var(--bg-elevated);
+  --color-card: var(--bg-card);
+  --color-ink: var(--text);
+  --color-muted: var(--text-muted);
+  --color-blue: var(--blue);
+  --color-blue-dim: var(--blue-dim);
+  --color-pine: var(--pine);
+  --color-pine-dim: var(--pine-dim);
+  --color-gold: var(--gold);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --font-display: var(--font-plex-sans);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex);
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(11, 79, 138, 0.16);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+input,
+select,
+textarea {
+  color-scheme: light;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(11, 79, 138, 0.55);
+  box-shadow: 0 0 0 3px var(--blue-glow);
+}
+
+.font-display {
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-plex), ui-monospace, monospace;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  border-radius: 0.25rem;
+  background: var(--blue);
+  color: #ffffff;
+  padding: 0.5rem 0.85rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.page-grid {
+  background: none;
+}
+
+.rule {
+  height: 1px;
+  background: var(--line);
+}
+
+.glow-orb {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
