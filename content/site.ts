@@ -1,6 +1,6 @@
 export const site = {
   name: "PineryX",
-  email: "hello@pineryx.com",
+  email: "info@pineryx.com",
   url: "https://pineryx.com",
   tagline: "Blockchain products and infrastructure, engineered to last.",
   description:
@@ -10,23 +10,23 @@ export const site = {
 export const nav = [
   { label: "Home", href: "/#top" },
   { label: "Services", href: "/#services" },
-  { label: "Solutions", href: "/#solutions" },
-  { label: "Technology", href: "/#technology" },
+  { label: "Team", href: "/#about" },
+  { label: "Careers", href: "/#career" },
   { label: "About", href: "/#about" },
-  { label: "Career", href: "/#career" },
-  { label: "Contact", href: "/#contact" },
 ] as const;
 
 export const hero = {
   eyebrow: "Web3 technology company",
   title: "Blockchain products and infrastructure, engineered to last.",
-  body: "PineryX designs and builds scalable Web3 systems — from real-world asset platforms to DeFi, governance, and tokenization — across Ethereum, Polygon, Solana, and other ecosystems.",
+  body: "PineryX designs and builds scalable Web3 systems — real-world asset platforms, DeFi infrastructure, DAO governance, tokenization systems, and smart contract development — across Ethereum, Polygon, Solana, and other ecosystems.",
   primaryCta: { label: "Start a project", href: "/#contact" },
   secondaryCta: { label: "Explore capabilities", href: "/#services" },
   chips: [
-    "Multi-chain by design",
-    "Security-first engineering",
-    "Production-grade delivery",
+    "Real-world asset platforms",
+    "DeFi infrastructure",
+    "DAO governance",
+    "Tokenization systems",
+    "Smart contract development",
   ],
 } as const;
 
@@ -146,7 +146,7 @@ export const why = [
 ] as const;
 
 export const career = {
-  eyebrow: "Career",
+  eyebrow: "Careers",
   title: "A focused team, still being formed.",
   body: "PineryX is early. We hire for judgment and craft — protocol engineering, product architecture, and the discipline required to ship systems that hold real value. Open roles will be listed here as we create them.",
   cta: { label: "Introduce yourself", href: "/#contact" },

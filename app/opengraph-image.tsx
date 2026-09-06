@@ -14,9 +14,9 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#070B09",
+          background: "#F4F6F8",
           padding: 72,
-          color: "#F3F1EA",
+          color: "#0F1728",
         }}
       >
         <div
@@ -24,20 +24,20 @@ export default function OpenGraphImage() {
             display: "flex",
             alignItems: "center",
             fontSize: 28,
-            letterSpacing: -0.5,
+            fontWeight: 600,
           }}
         >
-          Pinery<span style={{ color: "#1FA87A" }}>X</span>
+          Pinery<span style={{ color: "#0B4F8A" }}>X</span>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", maxWidth: 900 }}>
-          <div style={{ fontSize: 56, lineHeight: 1.15, fontWeight: 600 }}>
+        <div style={{ display: "flex", flexDirection: "column", maxWidth: 920 }}>
+          <div style={{ fontSize: 52, lineHeight: 1.15, fontWeight: 600 }}>
             Blockchain products and infrastructure, engineered to last.
           </div>
-          <div style={{ marginTop: 24, fontSize: 24, color: "#9AABA3" }}>
+          <div style={{ marginTop: 24, fontSize: 22, color: "#5C6774" }}>
             RWA · DeFi · DAO · Tokenization · Smart contracts
           </div>
         </div>
-        <div style={{ fontSize: 20, color: "#C6B07A" }}>
+        <div style={{ fontSize: 20, color: "#0B4F8A" }}>
           Ethereum · Polygon · Solana · and beyond
         </div>
       </div>

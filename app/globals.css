@@ -37,7 +37,7 @@
 html {
   color-scheme: light;
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 6rem;
 }
 
 html,
@@ -101,17 +101,13 @@ textarea:focus {
   top: 1rem;
 }
 
-.page-grid {
-  background: none;
+.surface-card {
+  border: 1px solid var(--line);
+  transition: border-color 0.2s ease;
 }
 
-.rule {
-  height: 1px;
-  background: var(--line);
-}
-
-.glow-orb {
-  display: none;
+.surface-card:hover {
+  border-color: rgba(11, 79, 138, 0.35);
 }
 
 @media (prefers-reduced-motion: reduce) {

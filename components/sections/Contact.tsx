@@ -9,6 +9,9 @@ import { Section } from "@/components/ui/Section";
 
 type Status = "idle" | "sent";
 
+const fieldClass =
+  "w-full border border-line bg-white px-3.5 py-3 text-base text-ink";
+
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
 
@@ -31,20 +34,20 @@ export function Contact() {
   }
 
   return (
-    <Section id="contact" className="pb-28">
+    <Section id="contact" className="bg-elevated pb-28">
       <Container>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <Eyebrow>Contact</Eyebrow>
-            <h2 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            <h2 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-tight">
               Tell us what you are building.
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted">
+            <p className="mt-6 text-lg leading-relaxed text-muted">
               Share a short brief of what you want to launch. We reply by email.
             </p>
             <a
               href={`mailto:${site.email}`}
-              className="mt-8 inline-block font-display text-xl text-pine transition-colors hover:text-[#27c48e]"
+              className="mt-8 inline-block text-xl font-medium text-blue transition-colors hover:text-blue-dim"
             >
               {site.email}
             </a>
@@ -53,9 +56,9 @@ export function Contact() {
           <Reveal delay={0.08} className="lg:col-span-7">
             <form
               onSubmit={onSubmit}
-              className="rounded-2xl border border-line bg-card p-6 sm:p-8"
+              className="surface-card bg-white p-6 sm:p-9"
             >
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Full name" name="name" required autoComplete="name" />
                 <Field
                   label="Email"
@@ -65,17 +68,17 @@ export function Contact() {
                   autoComplete="email"
                 />
               </div>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <div className="mt-5 grid gap-5 sm:grid-cols-2">
                 <Field label="Company / project" name="company" autoComplete="organization" />
                 <label className="block">
-                  <span className="mb-1.5 block text-xs font-medium text-muted">
+                  <span className="mb-2 block text-sm font-medium text-ink">
                     Interest
                   </span>
                   <select
                     name="interest"
                     required
                     defaultValue=""
-                    className="w-full rounded-sm border border-line bg-elevated px-3 py-2.5 text-sm text-ink"
+                    className={fieldClass}
                   >
                     <option value="" disabled>
                       Select a focus
@@ -88,23 +91,23 @@ export function Contact() {
                   </select>
                 </label>
               </div>
-              <label className="mt-4 block">
-                <span className="mb-1.5 block text-xs font-medium text-muted">
+              <label className="mt-5 block">
+                <span className="mb-2 block text-sm font-medium text-ink">
                   Message
                 </span>
                 <textarea
                   name="message"
                   required
                   rows={5}
-                  className="w-full resize-y rounded-sm border border-line bg-elevated px-3 py-2.5 text-sm text-ink"
+                  className={`${fieldClass} resize-y`}
                   placeholder="What are you trying to launch, and on which chain — if you already know?"
                 />
               </label>
 
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center rounded-sm bg-pine px-5 py-2.5 text-sm font-medium text-[#04110c] transition-colors hover:bg-[#27c48e]"
+                  className="inline-flex items-center justify-center bg-blue px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-dim"
                 >
                   Send message
                 </button>
@@ -113,7 +116,7 @@ export function Contact() {
                     If your email client did not open, write to {site.email}.
                   </p>
                 ) : (
-                  <p className="text-xs text-muted">We read every serious inquiry.</p>
+                  <p className="text-sm text-muted">We read every serious inquiry.</p>
                 )}
               </div>
             </form>
@@ -139,13 +142,13 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-medium text-muted">{label}</span>
+      <span className="mb-2 block text-sm font-medium text-ink">{label}</span>
       <input
         name={name}
         type={type}
         required={required}
         autoComplete={autoComplete}
-        className="w-full rounded-sm border border-line bg-elevated px-3 py-2.5 text-sm text-ink"
+        className={fieldClass}
       />
     </label>
   );

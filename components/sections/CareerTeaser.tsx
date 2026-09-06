@@ -7,17 +7,17 @@ import { Section } from "@/components/ui/Section";
 
 export function CareerTeaser() {
   return (
-    <Section id="career">
+    <Section id="career" className="bg-white">
       <Container>
         <Reveal className="max-w-2xl">
           <Eyebrow>{career.eyebrow}</Eyebrow>
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-tight">
             {career.title}
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted">
+          <p className="mt-6 text-lg leading-relaxed text-muted">
             {career.body}
           </p>
-          <Button href={career.cta.href} variant="secondary" className="mt-8">
+          <Button href={career.cta.href} className="mt-8">
             {career.cta.label}
           </Button>
         </Reveal>

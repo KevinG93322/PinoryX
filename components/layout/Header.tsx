@@ -12,7 +12,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -28,21 +28,19 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-        scrolled || open
-          ? "border-b border-line bg-bg/85 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent",
+        "fixed inset-x-0 top-0 z-50 border-b bg-white transition-shadow duration-200",
+        scrolled || open ? "border-line shadow-sm" : "border-line",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-[4.25rem] sm:px-8">
+      <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
         <Logo />
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-8" aria-label="Primary">
           {nav.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-ink"
+              className="text-[15px] font-medium text-ink/80 transition-colors hover:text-blue"
             >
               {item.label}
             </a>
@@ -50,7 +48,7 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="/#contact">Start a project</Button>
+          <Button href="/#contact">Contact</Button>
         </div>
 
         <button
@@ -66,23 +64,24 @@ export function Header() {
       </div>
 
       {open ? (
-        <div
-          id="mobile-nav"
-          className="border-t border-line bg-bg lg:hidden"
-        >
-          <nav className="flex flex-col px-5 py-6" aria-label="Mobile">
+        <div id="mobile-nav" className="border-t border-line bg-white lg:hidden">
+          <nav className="flex flex-col px-5 py-5 sm:px-8" aria-label="Mobile">
             {nav.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="border-b border-line py-3.5 text-base text-ink"
+                className="border-b border-line py-4 text-base font-medium text-ink transition-colors hover:text-blue"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
               </a>
             ))}
-            <Button href="/#contact" className="mt-6" onClick={() => setOpen(false)}>
-              Start a project
+            <Button
+              href="/#contact"
+              className="mt-6 w-full"
+              onClick={() => setOpen(false)}
+            >
+              Contact
             </Button>
           </nav>
         </div>
