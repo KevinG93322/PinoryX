@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { nav } from "@/content/site";
 import { cn } from "@/lib/utils";
@@ -8,6 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/layout/Logo";
 
 export function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -25,6 +28,8 @@ export function Header() {
     };
   }, [open]);
 
+  const closeMenu = () => setOpen(false);
+
   return (
     <header
       className={cn(
@@ -33,22 +38,34 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
-        <Logo />
+        <Logo onClick={closeMenu} />
 
         <nav className="hidden items-center gap-6 lg:flex xl:gap-8" aria-label="Primary">
-          {nav.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-[15px] font-medium text-ink/80 transition-colors hover:text-blue"
-            >
-              {item.label}
-            </a>
-          ))}
+          {nav.map((item) => {
+            const active =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(item.href);
+
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={cn(
+                  "text-[15px] font-medium transition-colors hover:text-blue",
+                  active ? "text-blue" : "text-ink/80",
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="/#contact">Contact</Button>
+          <Button href="/contact" className={pathname === "/contact" ? "bg-blue-dim" : undefined}>
+            Contact
+          </Button>
         </div>
 
         <button
@@ -66,20 +83,30 @@ export function Header() {
       {open ? (
         <div id="mobile-nav" className="border-t border-line bg-white lg:hidden">
           <nav className="flex flex-col px-5 py-5 sm:px-8" aria-label="Mobile">
-            {nav.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="border-b border-line py-4 text-base font-medium text-ink transition-colors hover:text-blue"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
+            {nav.map((item) => {
+              const active =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
+
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={closeMenu}
+                  className={cn(
+                    "border-b border-line py-4 text-base font-medium transition-colors hover:text-blue",
+                    active ? "text-blue" : "text-ink",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             <Button
-              href="/#contact"
-              className="mt-6 w-full"
-              onClick={() => setOpen(false)}
+              href="/contact"
+              onClick={closeMenu}
+              className={cn("mt-6 w-full", pathname === "/contact" && "bg-blue-dim")}
             >
               Contact
             </Button>

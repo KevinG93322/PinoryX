@@ -17,9 +17,12 @@ export function CareerTeaser() {
           <p className="mt-6 text-lg leading-relaxed text-muted">
             {career.body}
           </p>
-          <Button href={career.cta.href} className="mt-8">
-            {career.cta.label}
-          </Button>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button href="/careers">View careers</Button>
+            <Button href={career.cta.href} variant="secondary">
+              {career.cta.label}
+            </Button>
+          </div>
         </Reveal>
       </Container>
     </Section>

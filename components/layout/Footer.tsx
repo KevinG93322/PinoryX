@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { footer, nav, site } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/layout/Logo";
@@ -18,21 +19,21 @@ export function Footer() {
             <ul className="mt-4 space-y-3">
               {nav.map((item) => (
                 <li key={item.label}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-[15px] text-muted transition-colors hover:text-blue"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>
-                <a
-                  href="/#contact"
+                <Link
+                  href="/contact"
                   className="text-[15px] text-muted transition-colors hover:text-blue"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

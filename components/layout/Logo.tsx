@@ -1,10 +1,17 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-export function Logo({ className }: { className?: string }) {
+export function Logo({
+  className,
+  onClick,
+}: {
+  className?: string;
+  onClick?: () => void;
+}) {
   return (
     <Link
-      href="/#top"
+      href="/"
+      onClick={onClick}
       className={cn("group flex items-center gap-2.5 text-ink", className)}
       aria-label="PineryX home"
     >

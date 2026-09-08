@@ -1,4 +1,5 @@
 import { about } from "@/content/site";
+import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
@@ -16,6 +17,9 @@ export function About() {
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
             {about.body}
           </p>
+          <Button href="/about" className="mt-8">
+            Read about PineryX
+          </Button>
         </Reveal>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 md:gap-8">

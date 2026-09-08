@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/Button";
 import { capabilities } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -35,6 +36,9 @@ export function Capabilities() {
             </Reveal>
           ))}
         </div>
+        <Button href="/services" className="mt-10">
+          View all services
+        </Button>
       </Container>
     </Section>
   );
