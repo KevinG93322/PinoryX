@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -12,20 +13,17 @@ export function Logo({
     <Link
       href="/"
       onClick={onClick}
-      className={cn("group flex items-center gap-2.5 text-ink", className)}
+      className={cn("inline-flex shrink-0 items-center", className)}
       aria-label="PineryX home"
     >
-      <span
-        className="grid h-8 w-8 place-items-center rounded-sm bg-blue text-white"
-        aria-hidden="true"
-      >
-        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor">
-          <path d="M5 4.75h4.05L12 9.2l2.95-4.45H19L13.7 12 19 19.25h-4.05L12 14.8l-2.95 4.45H5L10.3 12 5 4.75z" />
-        </svg>
-      </span>
-      <span className="font-display text-[1.125rem] font-semibold tracking-tight">
-        Pinery<span className="text-blue">X</span>
-      </span>
+      <Image
+        src="/images/logo.png"
+        alt="PineryX"
+        width={862}
+        height={236}
+        className="h-9 w-auto sm:h-10"
+        priority
+      />
     </Link>
   );
 }
